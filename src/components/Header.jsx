@@ -34,7 +34,7 @@ export default function Header() {
           </IconButton>
         )}
         <IconButton component={NavLink} to='/content3' color='inherit'>
-          Content 3
+          Content 3 TEST
         </IconButton>
         {isLoggedIn && (
           <Typography style={{ flex: 1 }} variant='h6' noWrap>

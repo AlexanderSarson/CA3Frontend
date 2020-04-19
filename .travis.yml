@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - lts/*
+
+cache:
+  npm: true
+
+install:
+  - npm ci
+
+script:
+  - npm run build
+
+deploy:
+  provider: surge
+  project: ./build/
+  domain: ca3frontendteam2.surge.sh
