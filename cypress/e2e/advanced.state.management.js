@@ -12,14 +12,14 @@ describe('Advanced state management', () => {
     cy.findByLabelText('age').type('30');
     cy.findByLabelText('email').type('test@example.com');
     cy.findByText('Add').click();
-    /*
+
     cy.findByTestId('name').type('testname2');
     cy.findByLabelText('age').type('20');
     cy.findByLabelText('email').type('test2@example.com');
     cy.findByText('Add').click();
-*/
+
     cy.contains('test@example.com').should('exist');
-    //    cy.contains('test2@example.com').should('exist');
+    cy.contains('test2@example.com').should('exist');
   });
   it('Undo Changes', () => {
     cy.findByText('Undo').click();
