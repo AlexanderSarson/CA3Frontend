@@ -1,7 +1,10 @@
 language: node_js
 node_js:
   - lts/*
-
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
 cache:
   npm: true
   directories:
@@ -12,6 +15,8 @@ install:
   - npm ci
 
 script:
+  - npm start & wait-on http://localhost:3000
+  - cypress run
   - npm run build
 
 deploy:

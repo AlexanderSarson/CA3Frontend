@@ -43,15 +43,15 @@ export default function LogIn({ hideModal }) {
   );
 }
 
-function LoggedOut({ performLogin, change }) {
+export function LoggedOut({ performLogin, change }) {
   return (
     <div>
-      <h2>Login</h2>
-      <form onChange={change}>
+      <h2>Login details</h2>
+      <form onSubmit={performLogin} onChange={change}>
         <TextField
           size='small'
           id='username'
-          label='User Name'
+          label='Username'
           variant='outlined'
         />
         <TextField
@@ -60,7 +60,7 @@ function LoggedOut({ performLogin, change }) {
           label='Password'
           variant='outlined'
         />
-        <Button variant='outlined' color='primary' onClick={performLogin}>
+        <Button id='loginBtn' variant='outlined' color='primary' type='submit'>
           Login
         </Button>
       </form>
