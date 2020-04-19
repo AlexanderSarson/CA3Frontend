@@ -4,6 +4,9 @@ node_js:
 
 cache:
   npm: true
+  directories:
+    #Cypress cache
+    - ~/.cache
 
 install:
   - npm ci
@@ -15,3 +18,4 @@ deploy:
   provider: surge
   project: ./build/
   domain: ca3frontendteam2.surge.sh
+  deploy.skip_cleanup: true
