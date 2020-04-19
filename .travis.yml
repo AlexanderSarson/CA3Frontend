@@ -1,26 +1,31 @@
 language: node_js
 node_js:
   - lts/*
+
+dist: trusty
+
 addons:
+  sonarcloud:
+    organization: 'alexandersarson'
+    token:
+      secure: 'Yu5LjC7Jeo0Yb9xdN4ePxXZfO026qku4CP2vW4ks8ysIii6pcxL/sLA4KAyn7JuqyimcDosmWiNqktNF5kRjCaptRYILIbzHecdXfgHMPsJjsbuUWtwXFnGjZyBIPXCST+1k9ghr3X1Ta6zgzGbOL+UNJrlYecN1blSXwVa0Q+YHS9LMPtFHaXcfZ5Khej6ZXSFO9LRDIP3dsp9DFKxGGWPIf9vbsMeJstoS0nCoDnV+CpbXxA3yAjYz98ferXa5T6EnqjPiTb8gSABl3PDEwuDf3MvcxAdQzeUhF1t9OOirMxwww3F0H6D9oCuqRa/tU5Vqp0CS8P6fb15AXOS7Z+xUxcBFSkoXWRAqUw23Et13xHnpTGr1NH9eEFS2Ehnr5zfJmxR8WiwPS++RutAUep5W131r9NeuqMre00aOlF7kJcgJq7NT8szjY2pDxnGlCS0mRU+dzGIhuRZ2IKTur8oriLgtKBdlJ+/f0kUcEygzs5/o2fioK7X2t4nKUW9Zjt2uxWGVwrjLSoopMUatMosN00c659tp2HMj5NYiEVkB+Dw4Bz2f0zjZVcRH7BMUe8Ypmrc9KQ6u3yGxzPBeM/LdqMg5vPoRDBWlZUadaKyZEHdy5KXth8zlh6KF0EPcPTAepbmhXrQnRohG2FUZxIziK555vc4IbzrXXHObQDg='
   apt:
     packages:
       - libgconf-2-4
 cache:
   npm: true
   directories:
-    #Cypress cache
-    - ~/.cache
-
+    - '~/.cache'
 install:
   - npm ci
 
 script:
-  - npm start & wait-on http://localhost:3000
-  - cypress run --record --key f3485b7b-fc97-462d-ba5f-7d93876c3c3e
+  - sonar-scanner
+  #- npm start & wait-on http://localhost:3000
+  #- cypress run --record --key f3485b7b-fc97-462d-ba5f-7d93876c3c3e
   - npm run build
-
 deploy:
   provider: surge
-  project: ./build/
+  project: './build/'
   domain: ca3frontendteam2.surge.sh
   skip_cleanup: true
