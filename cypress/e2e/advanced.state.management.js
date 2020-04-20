@@ -7,7 +7,7 @@ describe('Advanced state management', () => {
     cy.findByText('Content 3').click();
     cy.url().should('include', '/content3');
   });
-  it('Add User', () => {
+  it('Add Users', () => {
     cy.findByTestId('name').type('testname');
     cy.findByLabelText('age').type('30');
     cy.findByLabelText('email').type('test@example.com');
@@ -17,7 +17,6 @@ describe('Advanced state management', () => {
     cy.findByLabelText('age').type('20');
     cy.findByLabelText('email').type('test2@example.com');
     cy.findByText('Add').click();
-
     cy.contains('test@example.com').should('exist');
     cy.contains('test2@example.com').should('exist');
   });

@@ -14,7 +14,12 @@ const LoginModal = ({ togglerColor = 'default' }) => {
   const loginBtn = (show) => {
     const btnTxt = isLoggedIn ? 'Logout' : 'Login';
     return (
-      <Button variant='contained' color={togglerColor} onClick={show}>
+      <Button
+        id='logBtn'
+        variant='contained'
+        color={togglerColor}
+        onClick={show}
+      >
         {btnTxt}
       </Button>
     );

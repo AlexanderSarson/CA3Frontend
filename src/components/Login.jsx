@@ -72,7 +72,9 @@ function LoggedIn({ handleLogout }) {
   return (
     <div>
       <h2>Logout</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <button id='logoutBtn' onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 }
