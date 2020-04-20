@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
-import { StateContext } from "../contexts/StateContext";
+import React, { useState, useContext } from 'react';
+import { StateContext } from '../contexts/StateContext';
 
 export default function Content3() {
-  const emptyObject = { name: "", age: "", email: "" };
+  const emptyObject = { name: '', age: '', email: '' };
   const [object, setObject] = useState(emptyObject);
   const {
     stateObjects,
@@ -18,12 +18,13 @@ export default function Content3() {
     setObject({ ...object, [target.id]: target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     addState(object);
     setObject(emptyObject);
   };
 
-  const handleRemove = id => {
+  const handleRemove = (id) => {
     RemoveState(id);
   };
 
@@ -37,34 +38,34 @@ export default function Content3() {
       <button onClick={redoState} disabled={!isFuture}>
         Redo
       </button>
-      <form>
-        <label htmlFor="name">name</label>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='name'>name</label>
         <input
-          id="name"
-          type="text"
+          id='name'
+          type='text'
           value={object.name}
           onChange={handleChange}
-          data-testid="name"
+          data-testid='name'
         />
-        <label htmlFor="age">age</label>
+        <label htmlFor='age'>age</label>
         <input
-          id="age"
-          type="text"
+          id='age'
+          type='text'
           value={object.age}
           onChange={handleChange}
         />
-        <label htmlFor="email">email</label>
+        <label htmlFor='email'>email</label>
         <input
-          id="email"
-          type="text"
+          id='email'
+          type='text'
           value={object.email}
           onChange={handleChange}
         />
         <br />
-        <button onClick={handleSubmit}>Add</button>
+        <button type='submit'>Add</button>
       </form>
       <ul>
-        {stateObjects.map(obj => (
+        {stateObjects.map((obj) => (
           <React.Fragment key={obj.id}>
             <li>
               name: {obj.name}, age: {obj.age}, email:{obj.email}

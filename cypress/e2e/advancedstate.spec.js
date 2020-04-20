@@ -8,14 +8,14 @@ describe('Advanced state management', () => {
     cy.url().should('include', '/content3');
   });
   it('Add Users', () => {
-    cy.findByTestId('name').type('testname');
-    cy.findByLabelText('age').type('30');
-    cy.findByLabelText('email').type('test@example.com');
+    cy.get('#name').type('testname');
+    cy.get('#age').type('30');
+    cy.get('#email').type('test@example.com');
     cy.findByText('Add').click();
 
-    cy.findByTestId('name').type('testname2');
-    cy.findByLabelText('age').type('20');
-    cy.findByLabelText('email').type('test2@example.com');
+    cy.get('#name').type('testname2');
+    cy.get('#age').type('20');
+    cy.get('#email').type('test2@example.com');
     cy.findByText('Add').click();
     cy.contains('test@example.com').should('exist');
     cy.contains('test2@example.com').should('exist');
