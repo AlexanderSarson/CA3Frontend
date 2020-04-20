@@ -21,11 +21,13 @@ const Jokes = () => {
       <h1>Jokes</h1>
       {response && (
         <>
-          <p>Joke1: {response.joke1}</p>
-          <p>Joke1 Reference: {response.joke1Reference}</p>
+          <h2>Joke 1</h2>
+          <p>{response.joke1}</p>
+          <p>Reference: {response.joke1Reference}</p>
           <br />
-          <p>Joke2: {response.joke2}</p>
-          <p>Joke2 Reference: {response.joke2Reference}</p>
+          <h2>Joke 2</h2>
+          <p>{response.joke2}</p>
+          <p>Reference: {response.joke2Reference}</p>
         </>
       )}
     </>

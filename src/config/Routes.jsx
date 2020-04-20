@@ -14,7 +14,7 @@ const Routes = () => {
       <Route exact path='/'>
         <Home />
       </Route>
-      <ProtectedRoute authenticatedRoles={['admin']} path='/jokes'>
+      <ProtectedRoute authenticatedRoles={['user', 'admin']} path='/jokes'>
         <Jokes />
       </ProtectedRoute>
 
