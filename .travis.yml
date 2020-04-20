@@ -31,5 +31,5 @@ script:
 deploy:
   provider: surge
   project: './build/'
-  domain: ca3frontendteam2.surge.sh
+  domain: https://ca3frontendteam2.surge.sh
   skip_cleanup: true
