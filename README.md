@@ -8,8 +8,38 @@ Startcode for the backend can be found [here](https://github.com/Paepke-cph/Team
 - Clone this repo
 - npm install
 - Change backend URL in settings.js - remember '/api'
+
+#### Surge settings
+
+Steps local
+
+- change domain in .travis.yml
+
+Steps on travis-ci.org(or travis-ci.com)
+add env variable to travis settings
+
+- name: SURGE_LOGIN
+- value: the mail address you used on surge
+
+- name: SURGE_TOKEN
+- value: run "surge token" from cmd and copy
+
+#### Sonarcloud settings
+
+Steps on sonarcloud.io
+
+- create new project
+- encrypt your token with travis(you can use docker for this if you don't want to install local. tip: pull ruby image) and add the token to travis.yml in project root
+- Add your new repo to be analyzed.
+- disable automatic analyze by sonarcloud.
+
+Steps local
+
+- goto "sonar-project.properties"
+- sonar.projectKey=your_project_key
+- sonar.organization=the_organisation_you_imported_in_sonarcloud
+- sonar.pullrequest.github.repository=your_git_repo
 - You're golden...
-- Deploy to surge with 'npm run build' and 'surge --project ./build --domain A_DOMAIN_NAME.surge.sh'
 
 ## Worth noting in the project.
 
